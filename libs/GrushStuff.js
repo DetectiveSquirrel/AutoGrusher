@@ -1,6 +1,6 @@
 // GrushStuff common config
-// place in libs/PowerRush.js
-// requires libs/bots/Rushee.js and libs/bots/RusherGlitchPub.js and tools/rushthread.js
+// place in libs/GrushStuff.js
+// requires libs/bots/Rushee.js and libs/bots/Rushee.js and tools/rushthread.js
 
 var Grush = {
   /////////////////////
