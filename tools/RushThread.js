@@ -183,11 +183,11 @@ function main() {
 
 		if (me.diff === 0) {
 			for (i = 0; i < this.Grush.Info.length; i++) {
-				say(this.Grush.Info[i]);
+				SendMessage(this.Grush.Info[i]);
 			}
 		}
 
-		say(this.Grush.Phrases.AndarielStart);
+		SendMessage(this.Grush.Phrases.AndarielStart);
 		Town.doChores();
 		Pather.useWaypoint(35, true);
 		Precast.doPrecast(true);
@@ -199,7 +199,7 @@ function main() {
 		delay(250);
 
 		Pather.makePortal();
-		say(this.Grush.Phrases.AndarielEnter);
+		SendMessage(this.Grush.Phrases.AndarielEnter);
 
 		var andyBug = 0;
 
@@ -208,21 +208,21 @@ function main() {
 			delay(250);
 			andyBug += 1;
 			if (andyBug > 10) {
-				say(this.Grush.Phrases.AndarielEnter);
+				SendMessage(this.Grush.Phrases.AndarielEnter);
 				andyBug = 0;
 			}
 		}
 
 		Attack.kill(156);
 		Pather.moveTo(22582, 9612);
-		say(this.Grush.Phrases.AndarielExit);
+		SendMessage(this.Grush.Phrases.AndarielExit);
 
 		while (this.playerIn()) {
 			delay(250);
 		}
 
 		Pather.usePortal(null, me.name);
-		say(this.Grush.Phrases.Act2);
+		SendMessage(this.Grush.Phrases.Act2);
 		Pather.useWaypoint(40, true);
 
 		while(this.getPartyAct() < 2) {
@@ -234,7 +234,7 @@ function main() {
 
 	this.cube = function() {
 		if (me.diff === 0) {
-			say(this.Grush.Phrases.CubeStart);
+			SendMessage(this.Grush.Phrases.CubeStart);
 			Pather.useWaypoint(57, true);
 			Precast.doPrecast(true);
 
@@ -244,7 +244,7 @@ function main() {
 
 			Pather.makePortal();
 			Attack.clear(30);
-			say(this.Grush.Phrases.CubeEnter);
+			SendMessage(this.Grush.Phrases.CubeEnter);
 
 			while (!this.playerIn()) {
 				delay(20);
@@ -261,7 +261,7 @@ function main() {
 	};
 
 	this.amulet = function() {
-		say(this.Grush.Phrases.AmuletStart);
+		SendMessage(this.Grush.Phrases.AmuletStart);
 		Town.doChores();
 		Pather.useWaypoint(44, true);
 		Precast.doPrecast(true);
@@ -277,7 +277,7 @@ function main() {
 			this.clearArea(me.area);
 		}
 
-		say(this.Grush.Phrases.AmuletEnter);
+		SendMessage(this.Grush.Phrases.AmuletEnter);
 
 		while (!this.playerIn()) {
 			delay(20);
@@ -293,7 +293,7 @@ function main() {
 	};
 
 	this.staff = function() {
-		say(this.Grush.Phrases.StaffStart);
+		SendMessage(this.Grush.Phrases.StaffStart);
 		Town.doChores();
 		Pather.useWaypoint(43, true);
 		Precast.doPrecast(true);
@@ -304,7 +304,7 @@ function main() {
 
 		Pather.makePortal();
 		Attack.securePosition(me.x, me.y, 30, 3000, true);
-		say(this.Grush.Phrases.StaffEnter);
+		SendMessage(this.Grush.Phrases.StaffEnter);
 
 		while (!this.playerIn()) {
 			//Pather.moveToPreset(me.area, 2, 356);
@@ -326,7 +326,7 @@ function main() {
 		// right down 25830 5447 (25866, 5431)
 		// left down 25447 5822 (25431, 5861)
 
-		say(this.Grush.Phrases.SummonerStart);
+		SendMessage(this.Grush.Phrases.SummonerStart);
 		Town.doChores();
 		Pather.useWaypoint(74, true);
 		Precast.doPrecast(true);
@@ -372,7 +372,7 @@ function main() {
 		}
 
 		Pather.makePortal();
-		say(this.Grush.Phrases.SummonerEnter);
+		SendMessage(this.Grush.Phrases.SummonerEnter);
 
 		while (!this.playerIn()) {
 			Pather.moveToUnit(spot);
@@ -381,7 +381,7 @@ function main() {
 
 		Pather.moveToPreset(me.area, 2, 357);
 		Attack.kill(250);
-		say(this.Grush.Phrases.SummonerLeave);
+		SendMessage(this.Grush.Phrases.SummonerLeave);
 
 		while (this.playerIn()) {
 			delay(100);
@@ -412,7 +412,7 @@ function main() {
 	};
 
 	this.duriel = function() {
-		say(this.Grush.Phrases.DurielStart);
+		SendMessage(this.Grush.Phrases.DurielStart);
 
 		if (me.inTown) {
 			Town.doChores();
@@ -427,7 +427,7 @@ function main() {
 
 		Pather.makePortal();
 		Attack.clear(20);
-		say(this.Grush.Phrases.DurielEnter);
+		SendMessage(this.Grush.Phrases.DurielEnter);
 
 		while (!this.playerIn()) {
 			Attack.clear(20);
@@ -456,7 +456,7 @@ function main() {
 		Pather.moveTo(22577, 15649, 10);
 		Pather.moveTo(22577, 15609, 10);
 		Pather.makePortal();
-		say(this.Grush.Phrases.DurielDead);
+		SendMessage(this.Grush.Phrases.DurielDead);
 
 		while (!this.playerIn()) {
 			delay(100);
@@ -466,11 +466,11 @@ function main() {
 			Town.goToTown();
 		}
 
-		say(this.Grush.Phrases.JerhynPortal);
+		SendMessage(this.Grush.Phrases.JerhynPortal);
 		Pather.useWaypoint(52);
 		Pather.moveToExit([51, 50], true);
 		Pather.moveTo(10022, 5047);
-		say(this.Grush.Phrases.Act3);
+		SendMessage(this.Grush.Phrases.Act3);
 		Town.goToTown(3);
 		Town.doChores();
 
@@ -482,7 +482,7 @@ function main() {
 	};
 
 	this.travincal = function() {
-		say(this.Grush.Phrases.TravincalStart);
+		SendMessage(this.Grush.Phrases.TravincalStart);
 		Town.doChores();
 		Pather.useWaypoint(83, true);
 		Precast.doPrecast(true);
@@ -492,7 +492,7 @@ function main() {
 		Pather.moveTo(coords[0] + 23, coords[1] - 102);
 		Pather.makePortal();
 
-		say(this.Grush.Phrases.TravincalEnter);
+		SendMessage(this.Grush.Phrases.TravincalEnter);
 
 		while (!this.playerIn()) {
 			delay(250);
@@ -510,7 +510,7 @@ function main() {
 		Pather.moveTo(coords[0] + 23, coords[1] - 102);
 		Pather.makePortal();
 
-		say(this.Grush.Phrases.TravincalLeave);
+		SendMessage(this.Grush.Phrases.TravincalLeave);
 
 		Pather.usePortal(null, me.name);
 
@@ -518,7 +518,7 @@ function main() {
 	};
 
 	this.mephisto = function() {
-		say(this.Grush.Phrases.MephistoStart);
+		SendMessage(this.Grush.Phrases.MephistoStart);
 
 		var hydra;
 
@@ -529,7 +529,7 @@ function main() {
 		Pather.moveTo(17692, 8023);
 		Pather.makePortal();
 		delay(2000);
-		say(this.Grush.Phrases.MephistoEnter);
+		SendMessage(this.Grush.Phrases.MephistoEnter);
 
 		while (!this.playerIn()) {
 			delay(250);
@@ -540,7 +540,7 @@ function main() {
 		Pickit.pickItems();
 		Pather.moveTo(17692, 8023);
 		Pather.makePortal();
-		say(this.Grush.Phrases.MephistoLeave);
+		SendMessage(this.Grush.Phrases.MephistoLeave);
 
 		while (this.playerIn()) {
 			delay(250);
@@ -562,7 +562,7 @@ function main() {
 		Pather.makePortal();
 		Pather.moveTo(17581, 8070);
 
-		say(this.Grush.Phrases.Act4);
+		SendMessage(this.Grush.Phrases.Act4);
 
 		while (!this.playerIn()) {
 			delay(250);
@@ -580,7 +580,7 @@ function main() {
 
 	this.diablo = function() {
 		if (me.diff === 2 && me.gametype === 0) {
-			say(this.Grush.Phrases.End);
+			SendMessage(this.Grush.Phrases.End);
 			D2Bot.printToConsole(this.Grush.Phrases.End);
 			delay(500);
 
@@ -600,7 +600,7 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.DiabloStart);
+		SendMessage(this.Grush.Phrases.DiabloStart);
 
 		this.getLayout = function(seal, value) {
 			var sealPreset = getPresetUnit(108, 2, seal);
@@ -771,7 +771,7 @@ function main() {
 		Pather.moveTo(7763, 5267);
 		Pather.makePortal();
 		Pather.moveTo(7727, 5267);
-		say(this.Grush.Phrases.DiabloEnter);
+		SendMessage(this.Grush.Phrases.DiabloEnter);
 
 		while (!this.playerIn()) {
 			delay(250);
@@ -789,7 +789,7 @@ function main() {
 
 		// HELL DIABLO
 		if (me.diff === 2 && !this.bumperCheck() && !this.Grush.RushSettings.Anya && !this.Grush.RushSettings.Shenk) {
-				say(this.Grush.Phrases.End);
+				SendMessage(this.Grush.Phrases.End);
 				D2Bot.printToConsole(this.Grush.Phrases.End);
 				delay(500);
 
@@ -805,10 +805,10 @@ function main() {
 				D2Bot.stop(me.profile, true);
 		}
 		
-		say(this.Grush.Phrases.DiabloLeave);
+		SendMessage(this.Grush.Phrases.DiabloLeave);
 
 		if (me.gametype > 0) {
-			say(this.Grush.Phrases.Act5);
+			SendMessage(this.Grush.Phrases.Act5);
 
 			while(this.getPartyAct() < 5) {
 				delay(250);
@@ -827,7 +827,7 @@ function main() {
 		this.ancients = function() {
 		if (this.Grush.RushSettings.RealBumper) { // Real Level 40 Bumper
 			if (me.diff === 2 && !this.bumperCheck()) {
-					say(this.Grush.Phrases.End);
+					SendMessage(this.Grush.Phrases.End);
 					D2Bot.printToConsole(this.Grush.Phrases.End);
 					delay(500);
 
@@ -843,7 +843,7 @@ function main() {
 					D2Bot.stop(me.profile, true);
 			}
 
-			say(this.Grush.Phrases.AncientsStart);
+			SendMessage(this.Grush.Phrases.AncientsStart);
 
 			var altar;
 
@@ -858,7 +858,7 @@ function main() {
 			Pather.moveTo(10089, 12622);
 			Pather.makePortal();
 			for (i = 0; i < this.Grush.Phrases.AncientsEnter.length; i++) {
-				say(this.Grush.Phrases.AncientsEnter[i]);
+				SendMessage(this.Grush.Phrases.AncientsEnter[i]);
 			}
 			switch (me.diff) {
 			case 0:
@@ -898,7 +898,7 @@ function main() {
 			me.cancel();
 			Pather.makePortal();
 
-			say(this.Grush.Phrases.AncientsLeave);
+			SendMessage(this.Grush.Phrases.AncientsLeave);
 
 			while (this.playerIn()) {
 				delay(100);
@@ -909,7 +909,7 @@ function main() {
 			}
 		} else { // Fake Level 1 Bumper
 			if (me.diff === 2 || !this.Grush.RushSettings.Ancients) {
-					say(this.Grush.Phrases.End);
+					SendMessage(this.Grush.Phrases.End);
 					D2Bot.printToConsole(this.Grush.Phrases.End);
 					delay(500);
 
@@ -926,7 +926,7 @@ function main() {
 			}
 
 			for (i = 0; i < this.Grush.Phrases.AncientsBumperlessClear.length; i++) {
-				say(this.Grush.Phrases.AncientsBumperlessClear[i]);
+				SendMessage(this.Grush.Phrases.AncientsBumperlessClear[i]);
 			}
 
 			var altar;
@@ -969,7 +969,7 @@ function main() {
 			me.cancel();
 			Pather.makePortal();
 
-			say(this.Grush.Phrases.AncientsBumperless);
+			SendMessage(this.Grush.Phrases.AncientsBumperless);
 
 			while (!this.playerIn()) {
 				delay(100);
@@ -982,7 +982,7 @@ function main() {
 
 	this.baal = function() {
 		if (this.Grush.RushSettings.RealBumper) { // Real Level 40 Bumper
-			say(this.Grush.Phrases.BaalStart);
+			SendMessage(this.Grush.Phrases.BaalStart);
 
 			var tick, portal;
 
@@ -1140,7 +1140,7 @@ function main() {
 
 			Pather.moveTo(15118, 5045);
 			Pather.makePortal();
-			say(this.Grush.Phrases.BaalWaveTP);
+			SendMessage(this.Grush.Phrases.BaalWaveTP);
 			Precast.doPrecast(true);
 
 			tick = getTickCount();
@@ -1231,7 +1231,7 @@ function main() {
 			Pather.moveTo(15170, 5950);
 			delay(1000);
 			for (i = 0; i < this.Grush.Phrases.BaalEnter.length; i++) {
-				say(this.Grush.Phrases.BaalEnter[i]);
+				SendMessage(this.Grush.Phrases.BaalEnter[i]);
 			}
 
 			while (!this.playerIn()) {
@@ -1240,9 +1240,9 @@ function main() {
 
 			Pather.moveTo(15134, 5923);
 			Attack.kill(544); // Baal
-			say(this.Grush.Phrases.BaalDead);
+			SendMessage(this.Grush.Phrases.BaalDead);
 		} else {
-			say(this.Grush.Phrases.BaalStart);
+			SendMessage(this.Grush.Phrases.BaalStart);
 
 			var tick, portal;
 
@@ -1438,7 +1438,7 @@ function main() {
 							break;
 						case 2:
 							if (!calledBumperless) { // stops double saying, small fix.
-								say(this.Grush.Phrases.BaalBumperless);
+								SendMessage(this.Grush.Phrases.BaalBumperless);
 								calledBumperless = true;
 							}
 
@@ -1514,7 +1514,7 @@ function main() {
 			Pickit.pickItems();
 
 
-			say(this.Grush.Phrases.BaalDead);
+			SendMessage(this.Grush.Phrases.BaalDead);
 		}
 
 		return true;
@@ -1531,7 +1531,7 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.RadamentStart);
+		SendMessage(this.Grush.Phrases.RadamentStart);
 
 		var i, radaCoords, rada, radaPreset, returnSpot,
 			moveIntoPos = function(unit, range) {
@@ -1596,7 +1596,7 @@ function main() {
 
 		Attack.securePosition(me.x, me.y, 35, 3000);
 		Pather.makePortal();
-		say(this.Grush.Phrases.RadamentEnter);
+		SendMessage(this.Grush.Phrases.RadamentEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1609,7 +1609,7 @@ function main() {
 			y: me.y
 		};
 
-		say(this.Grush.Phrases.RadamentLeave);
+		SendMessage(this.Grush.Phrases.RadamentLeave);
 		Pickit.pickItems();
 		Attack.securePosition(me.x, me.y, 30, 3000);
 
@@ -1619,7 +1619,7 @@ function main() {
 
 		Pather.moveToUnit(returnSpot);
 		Pather.makePortal();
-		say(this.Grush.Phrases.RadamentBookEnter);
+		SendMessage(this.Grush.Phrases.RadamentBookEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1644,7 +1644,7 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.LamesenStart);
+		SendMessage(this.Grush.Phrases.LamesenStart);
 
 		if (!Town.goToTown() || !Pather.useWaypoint(80, true)) {
 			throw new Error("Lam Essen quest failed");
@@ -1658,7 +1658,7 @@ function main() {
 
 		Attack.securePosition(me.x, me.y, 30, 2000);
 		Pather.makePortal();
-		say(this.Grush.Phrases.LamesenEnter);
+		SendMessage(this.Grush.Phrases.LamesenEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1678,7 +1678,7 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.IzualStart);
+		SendMessage(this.Grush.Phrases.IzualStart);
 
 		var i, izualCoords, izual, izualPreset, returnSpot,
 			moveIntoPos = function(unit, range) {
@@ -1748,7 +1748,7 @@ function main() {
 
 		//Attack.securePosition(me.x, me.y, 30, 3000);
 		Pather.makePortal();
-		say(this.Grush.Phrases.IzualEnter);
+		SendMessage(this.Grush.Phrases.IzualEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1756,7 +1756,7 @@ function main() {
 
 		Attack.kill(256); // Izual
 		Pickit.pickItems();
-		say(this.Grush.Phrases.IzualLeave);
+		SendMessage(this.Grush.Phrases.IzualLeave);
 		Pather.moveToUnit(returnSpot);
 
 		while (this.playerIn()) {
@@ -1773,13 +1773,13 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.ShenkStart);
+		SendMessage(this.Grush.Phrases.ShenkStart);
 
 		Pather.useWaypoint(111, true);
 		Precast.doPrecast(false);
 		Pather.moveTo(3846, 5120);
 		Pather.makePortal();
-		say(this.Grush.Phrases.ShenkEnter);
+		SendMessage(this.Grush.Phrases.ShenkEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1788,7 +1788,7 @@ function main() {
 		Attack.kill(getLocaleString(22435)); // Shenk
 		Pickit.pickItems();
 		Pather.moveTo(3846, 5120);
-		say(this.Grush.Phrases.ShenkLeave);
+		SendMessage(this.Grush.Phrases.ShenkLeave);
 
 		while (this.playerIn()) {
 			delay(200);
@@ -1804,7 +1804,7 @@ function main() {
 			return false;
 		}
 
-		say(this.Grush.Phrases.AnyaStart);
+		SendMessage(this.Grush.Phrases.AnyaStart);
 
 		var anya;
 
@@ -1830,7 +1830,7 @@ function main() {
 		}
 
 		Pather.makePortal();
-		say(this.Grush.Phrases.AnyaEnter);
+		SendMessage(this.Grush.Phrases.AnyaEnter);
 
 		while (!this.playerIn()) {
 			delay(200);
@@ -1840,7 +1840,7 @@ function main() {
 			delay(1000);
 		}
 
-		say(this.Grush.Phrases.AnyaLeave); // Mainly for non-questers to know when to get the scroll of resistance
+		SendMessage(this.Grush.Phrases.AnyaLeave); // Mainly for non-questers to know when to get the scroll of resistance
 
 		while (this.playerIn()) {
 			delay(200);
@@ -1896,8 +1896,8 @@ function main() {
 					try {
 						this[sequence[current]]();
 					} catch (sequenceError) {
-						say(sequenceError.message);
-						say(this.Grush.Phrases.SequenceError);
+						SendMessage(sequenceError.message);
+						SendMessage(this.Grush.Phrases.SequenceError);
 						quit();
 					}
 
@@ -1959,4 +1959,15 @@ function main() {
 	}
 
 	return true;
+}
+
+function SendMessage(msg) {
+	if (!this.Grush.RushSettings.InGameChat) {
+		for (i = 0; i < this.Grush.RusheeProfiles.length; i++) {
+			print(this.Grush.RusheeProfiles[i] + " :: " + msg)
+			sendCopyData(null, this.Grush.RusheeProfiles[i], 4587, msg);
+		}
+	} else {
+		say(msg);
+	}
 }
