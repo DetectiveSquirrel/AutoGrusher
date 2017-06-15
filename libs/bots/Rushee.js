@@ -378,12 +378,30 @@ function Rushee() {
 		return true;
 	};
 
-	addEventListener("chatmsg",
-		function(who, msg) {
-			if (who === Config.Leader) {
+	if (!this.Grush.RushSettings.InGameChat) {
+		addEventListener('copydata', 		
+			function ReceiveCopyData(mode, msg) {
+			var obj;
+
+			switch (mode) {
+			case 4587: // Game info
+				print(msg);
+
 				actions.push(msg);
+
+				break;
 			}
 		});
+
+
+	} else {
+		addEventListener("chatmsg",
+			function(who, msg) {
+				if (who === Config.Leader) {
+					actions.push(msg);
+				}
+			});
+	}
 
 	// START
 	if (me.inTown) {
