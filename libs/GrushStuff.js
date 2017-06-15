@@ -18,6 +18,7 @@ var Grush = {
   HellRusher: ["Rusher2 East", "SithyBB"], // ["ProfileName", "CharacterName"]
 
   RushSettings: {
+    InGameChat: false,
     RealBumper: false,
     WaitPlayerCount: 2,
     Radament: false,
